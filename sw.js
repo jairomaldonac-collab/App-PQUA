@@ -1,11 +1,10 @@
-const CACHE = 'dossier-pqua-v3';
+const CACHE = 'dossier-pqua-v10';
 const ASSETS = ['./index.html', './manifest.json'];
 
 self.addEventListener('install', e => {
+  self.skipWaiting();
   e.waitUntil(
-    caches.open(CACHE)
-      .then(c => c.addAll(ASSETS))
-      .then(() => self.skipWaiting())
+    caches.open(CACHE).then(c => c.addAll(ASSETS))
   );
 });
 
@@ -18,24 +17,22 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
-  // Let API and CDN calls go through network always
   const url = new URL(e.request.url);
-  if (url.hostname !== location.hostname && !e.request.url.startsWith('file://')) {
+  // Always network-first for external APIs
+  if (url.hostname !== location.hostname) {
     e.respondWith(fetch(e.request).catch(() => new Response('', {status: 503})));
     return;
   }
-  // Local assets: cache first
+  // Network-first for local assets too (ensures latest version)
   e.respondWith(
-    caches.match(e.request)
-      .then(cached => cached || fetch(e.request)
-        .then(resp => {
-          if (resp.ok) {
-            const clone = resp.clone();
-            caches.open(CACHE).then(c => c.put(e.request, clone));
-          }
-          return resp;
-        })
-        .catch(() => caches.match('./index.html'))
-      )
+    fetch(e.request)
+      .then(resp => {
+        if (resp.ok) {
+          const clone = resp.clone();
+          caches.open(CACHE).then(c => c.put(e.request, clone));
+        }
+        return resp;
+      })
+      .catch(() => caches.match(e.request))
   );
 });
