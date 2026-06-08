@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Instalación – Dossier PQUA</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Arial,sans-serif;background:#050d05;color:#c8e6c9;padding:16px;max-width:700px;margin:0 auto}
+  h1{color:#a5d6a7;font-size:22px;margin:16px 0 4px;text-align:center}
+  .sub{color:#3a7a3a;font-size:11px;margin-bottom:20px;letter-spacing:1px;text-align:center}
+  .card{background:#071507;border:1px solid #1a4020;border-radius:12px;padding:18px;margin-bottom:14px}
+  .card h2{display:flex;align-items:center;gap:10px;color:#69f0ae;font-size:16px;margin-bottom:14px}
+  .step{display:flex;gap:12px;margin-bottom:12px}
+  .num{width:28px;height:28px;border-radius:50%;background:#1b5e20;color:#a5d6a7;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .txt{font-size:13px;color:#c8e6c9;line-height:1.6}
+  .txt strong{color:#69f0ae}
+  .txt code{background:#0a1a0a;padding:2px 6px;border-radius:4px;font-size:12px;color:#a5d6a7}
+  .tip{background:#0a1f0a;border:1px solid #2e7d32;border-radius:8px;padding:10px 14px;font-size:12px;color:#81c784;margin-top:10px;line-height:1.6}
+  .warn{background:#1a0a00;border:1px solid #e65100;border-radius:8px;padding:12px 14px;font-size:13px;color:#ffb74d;margin-bottom:16px;line-height:1.6}
+  .ok{background:#071a07;border:1px solid #2e7d32;border-radius:8px;padding:12px 14px;font-size:13px;color:#69f0ae;margin-bottom:16px;line-height:1.6}
+  a{color:#64b5f6;text-decoration:none}
+  a:hover{text-decoration:underline}
+  .badge{display:inline-block;background:#1b5e20;color:#a5d6a7;border-radius:6px;font-size:10px;font-weight:700;padding:2px 8px;margin-left:6px}
+  .url-box{background:#030c03;border:1px solid #2e7d32;border-radius:8px;padding:12px;font-family:monospace;font-size:13px;color:#69f0ae;word-break:break-all;margin:8px 0}
+</style>
+</head>
+<body>
+<div style="text-align:center;padding:20px 0 10px">
+  <div style="width:64px;height:64px;border-radius:16px;background:linear-gradient(135deg,#1a5c20,#0d3a10);display:inline-flex;align-items:center;justify-content:center;font-size:34px;border:2px solid #2a7030;margin-bottom:12px">🌿</div>
+  <h1>Dossier Andino PQUA</h1>
+  <p class="sub">GUÍA DE INSTALACIÓN · RESOLUCIÓN 2075 · DECISIÓN 804 · CAN</p>
+</div>
+
+<div class="warn">
+  ⚠ <strong>IMPORTANTE — Abrir siempre desde HTTPS, no desde archivo local.</strong><br>
+  Si abre index.html directamente desde el celular (content://...), las búsquedas automáticas en EFSA, ICA, PLM y demás fuentes <strong>NO funcionarán</strong> por restricciones de seguridad del navegador.<br><br>
+  <strong>Solución:</strong> Hospede la app en GitHub Pages (gratis, permanente) o Netlify. Instrucciones abajo. ⬇
+</div>
+
+<!-- OPCIÓN 1: GitHub Pages -->
+<div class="card">
+  <h2>⭐ Opción 1 — GitHub Pages <span class="badge">RECOMENDADO · GRATIS · HTTPS</span></h2>
+  <p style="font-size:12px;color:#3a7a3a;margin-bottom:14px">Una vez configurado, accede desde cualquier dispositivo con una URL fija tipo <code>https://TU-USUARIO.github.io/dossier-pqua/</code></p>
+
+  <div class="step"><div class="num">1</div><div class="txt">Cree una cuenta gratis en <a href="https://github.com" target="_blank">github.com</a> si no tiene una</div></div>
+  <div class="step"><div class="num">2</div><div class="txt">Cree un repositorio nuevo llamado <strong>dossier-pqua</strong> (público)</div></div>
+  <div class="step"><div class="num">3</div><div class="txt">Suba los archivos: <strong>index.html</strong>, <strong>sw.js</strong>, <strong>manifest.json</strong> y la carpeta <strong>icons/</strong></div></div>
+  <div class="step"><div class="num">4</div><div class="txt">Vaya a <strong>Settings → Pages → Source: Deploy from branch → main → / (root)</strong> → Save</div></div>
+  <div class="step"><div class="num">5</div><div class="txt">En 2 minutos su URL estará lista:<br>
+    <div class="url-box">https://TU-USUARIO.github.io/dossier-pqua/</div>
+  </div></div>
+  <div class="step"><div class="num">6</div><div class="txt">Abra esa URL en Chrome (Android/PC) o Safari (iPhone) → toque <strong>"Instalar"</strong> o <strong>"Agregar a pantalla de inicio"</strong></div></div>
+  <div class="tip">✅ Desde HTTPS todas las búsquedas automáticas (ICA, PLM, EFSA, EPA, etc.) funcionan perfectamente. La app queda instalada como PWA en su dispositivo.</div>
+</div>
+
+<!-- OPCIÓN 2: Netlify Drop -->
+<div class="card">
+  <h2>🚀 Opción 2 — Netlify Drop <span class="badge">MÁS FÁCIL · GRATIS</span></h2>
+  <div class="step"><div class="num">1</div><div class="txt">Vaya a <a href="https://app.netlify.com/drop" target="_blank">app.netlify.com/drop</a> en su computador</div></div>
+  <div class="step"><div class="num">2</div><div class="txt">Arrastre la carpeta <strong>pwa-dossier/</strong> completa al área de drop</div></div>
+  <div class="step"><div class="num">3</div><div class="txt">En 30 segundos obtiene una URL tipo:<br>
+    <div class="url-box">https://random-name-12345.netlify.app/</div>
+  </div></div>
+  <div class="step"><div class="num">4</div><div class="txt">Abra esa URL en su celular → instale como PWA</div></div>
+  <div class="tip">💡 Puede personalizar el nombre del sitio en la configuración de Netlify. También puede re-deployar cuando haya actualizaciones.</div>
+</div>
+
+<!-- OPCIÓN 3: Servidor local WiFi -->
+<div class="card">
+  <h2>📡 Opción 3 — Servidor local (sin internet externo) <span class="badge">AVANZADO</span></h2>
+  <p style="font-size:12px;color:#3a7a3a;margin-bottom:14px">Si tiene Python instalado en su PC, puede servir la app localmente y acceder desde el celular por WiFi.</p>
+  <div class="step"><div class="num">1</div><div class="txt">En la carpeta <strong>pwa-dossier/</strong> abra una terminal y ejecute:<br>
+    <div class="url-box">python -m http.server 8080</div>
+  </div></div>
+  <div class="step"><div class="num">2</div><div class="txt">Averigüe la IP local de su PC (ej: 192.168.1.100)</div></div>
+  <div class="step"><div class="num">3</div><div class="txt">En el celular (misma red WiFi) abra:<br>
+    <div class="url-box">http://192.168.1.100:8080</div>
+  </div></div>
+  <div class="tip">⚠ Con HTTP local (no HTTPS) algunas llamadas a la API pueden seguir bloqueadas dependiendo del navegador. GitHub Pages o Netlify son más confiables.</div>
+</div>
+
+<div class="ok">
+  ✅ <strong>Resumen:</strong> La opción más simple y permanente es <strong>Netlify Drop</strong> (2 minutos, arrastrar y soltar). GitHub Pages es ideal si ya usa GitHub. En ambos casos la app queda accesible desde cualquier dispositivo con una URL HTTPS fija.
+</div>
+
+<div style="text-align:center;padding:16px 0;font-size:11px;color:#2a4a2a">
+  Dossier Andino PQUA · Resolución 2075 · Decisión 804 · CAN<br>
+  <a href="index.html" style="color:#3a7a3a">← Abrir app (solo desde HTTPS)</a>
+</div>
+</body>
+</html>
